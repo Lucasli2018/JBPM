@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="InlineMail" xmlns="http://jbpm.org/4.4/jpdl">
+
+  <start g="20,25,80,40">
+    <transition to="send rectify note"/>
+  </start>
+
+  <mail g="99,25,115,45" language="juel" name="send rectify note">
+    <to addresses="winston@minitrue"/>
+    <cc groups="innerparty" users="bb"/>
+    <bcc groups="thinkpol"/>
+    <subject>rectify ${newspaper}</subject>
+    <text>${newspaper} ${date} reporting bb dayorder doubleplusungood
+      refs unpersons rewrite fullwise upsub antefiling</text>
+    <!--
+    <html><table><tr><td>${newspaper}</td><td>${date}</td>
+      <td>reporting bb dayorder doubleplusungood
+      refs unpersons rewrite fullwise upsub antefiling</td>
+      </tr></table></html>
+    <attachments>
+      <attachment url='http://www.george-orwell.org/1984/3.html' />
+      <attachment resource='org/example/pic.jpg' />
+      <attachment file='${user.home}/.face' />
+    </attachments>
+    -->
+    <transition to="wait"/>
+  </mail>
+
+  <state g="240,25,98,45" name="wait"/>
+
+</process>

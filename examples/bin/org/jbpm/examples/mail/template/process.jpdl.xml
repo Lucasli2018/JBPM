@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="TemplateMail" xmlns="http://jbpm.org/4.4/jpdl">
+
+  <start g="20,25,80,40">
+    <transition to="send rectify note"/>
+  </start>
+
+  <mail g="99,25,115,45" name="send rectify note" template="rectify-template">
+    <transition to="wait"/>
+  </mail>
+
+  <state g="240,25,98,45" name="wait"/>
+
+</process>
