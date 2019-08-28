@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="报销流程" xmlns="http://jbpm.org/4.4/jpdl">
+   <start name="start1" g="179,53,48,48">
+      <transition name="to task1" to="提交申请" g="-52,-22"/>
+   </start>
+   <end name="end1" g="193,398,48,48"/>
+   <task name="提交申请" g="160,216,92,52" assignee="wangwu">
+      <transition name="to end1" to="end1" g="-50,-22"/>
+   </task>
+</process>
