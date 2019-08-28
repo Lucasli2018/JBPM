@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="报销流程" xmlns="http://jbpm.org/4.4/jpdl">
+	<!-- 流程开始的事件 -->
+	<on event="start">
+		<event-listener class="cn.itcast.event.EventImpl"></event-listener>
+	</on>
+	<!-- 流程结束的事件 -->
+	<on event="end">
+		<event-listener class="cn.itcast.event.EventImpl"></event-listener>
+	</on>
+   <start name="start1" g="38,16,48,48">
+      <transition name="to task1" to="提交申请" g="-52,-22"/>
+   </start>
+   <end name="end1" g="38,264,48,48"/>
+   <task name="提交申请" g="16,96,92,52" assignee="张三">
+      <transition name="to task2" to="审批处理" g="-52,-22"/>
+   </task>
+   <task name="审批处理" g="16,180,92,52" assignee="李四">
+      <transition name="to end1" to="end1" g="-50,-22"/>
+   </task>
+</process>

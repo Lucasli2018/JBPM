@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="购物流程" xmlns="http://jbpm.org/4.4/jpdl">
+   <start g="99,5,48,48" name="start1">
+      <transition g="-52,-22" name="to fork1" to="fork1"/>
+   </start>
+   <end g="100,383,48,48" name="end1"/>
+   <task assignee="商家" g="16,135,92,52" name="发货">
+      <transition g="-52,-22" name="to task3" to="收货"/>
+   </task>
+   <task assignee="客户" g="140,135,92,52" name="客户付款">
+      <transition g="-52,-22" name="to task4" to="商家收款"/>
+   </task>
+   <task assignee="客户" g="16,219,92,52" name="收货">
+      <transition g="-49,-22" name="to join1" to="join1"/>
+   </task>
+   <task assignee="商家" g="140,219,92,52" name="商家收款">
+      <transition g="-49,-22" name="to join1" to="join1"/>
+   </task>
+   <fork g="100,77,3,7" name="fork1">
+      <transition g="-52,-22" name="to task1" to="发货"/>
+      <transition g="-73,-31" name="to task2" to="客户付款"/>
+   </fork>
+   <join g="100,303,48,48" name="join1">
+      <transition g="-50,-22" name="to end1" to="end1"/>
+   </join>
+</process>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="报销流程" xmlns="http://jbpm.org/4.4/jpdl">
+   <start g="246,47,48,48" name="start1">
+      <transition g="-52,-22" name="to task1" to="提交申请"/>
+   </start>
+   <end g="268,429,48,48" name="end1"/>
+   <task assignee="张三" g="223,133,92,52" name="提交申请">
+      <transition g="-79,-22" name="to exclusive1" to="exclusive1"/>
+   </task>
+   <decision g="244,228,48,48" name="exclusive1">
+   <handler class="cn.itcast.decision.DesisionHandlerImpl" />
+      <transition g="-52,-22" name="to task2" to="主管审批"/>
+      <transition g="-52,-22" name="to task3" to="经理审批"/>
+   </decision>
+   <task assignee="李四" g="134,314,92,52" name="主管审批">
+      <transition g="-50,-22" name="to end1" to="end1"/>
+   </task>
+   <task assignee="王五" g="326,307,92,52" name="经理审批">
+      <transition g="-50,-22" name="to end1" to="end1"/>
+   </task>
+</process>

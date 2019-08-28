@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="custom" xmlns="http://jbpm.org/4.4/jpdl">
+   <start name="start1" g="38,16,48,48">
+      <transition name="to custom1" to="custom1" g="-70,-22"/>
+   </start>
+   <end name="end1" g="38,180,48,48"/>
+   <custom name="custom1" g="16,96,92,52" class="cn.itcast.custom.CustomImp">
+      <transition name="to end1" to="end1" g="-50,-22"/>
+   </custom>
+</process>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="状态活动流程" xmlns="http://jbpm.org/4.4/jpdl">
+   <start name="start1" g="38,16,48,48">
+      <transition name="to state1" to="state1" g="-56,-22"/>
+   </start>
+   <end name="end1" g="38,180,48,48"/>
+   <state name="state1" g="16,96,92,52">
+      <transition name="to end1" to="end1" g="-50,-22"/>
+   </state>
+</process>
